@@ -1,3 +1,17 @@
-name: {$PluginName}
-main: {$PackageName}.{$MainClass}
-version: {$VersionNumber}
+name: ProximaExploitFixer
+version: ${project.version}
+main: club.Proxima.Fixer.Main
+description: ${project.description}
+softdepend: [ ProtocolLib ]
+
+commands:
+  aef:
+    usage: /<command>
+    description: AnarchyExploitFixes commands
+  toggleconnectionmsgs:
+    usage: /<command>
+    description: Toggle connection messages
+
+permissions:
+  anarchyexploitfixes.netherroofbypass:
+    description: Bypass nether roof restrictions. (if enabled)
