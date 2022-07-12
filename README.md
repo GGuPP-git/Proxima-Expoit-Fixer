@@ -1,2 +1,1 @@
-да
- test commit
+test commit
