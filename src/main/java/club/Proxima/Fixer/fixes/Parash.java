@@ -45,7 +45,6 @@ public class Parash {
 
                             Chunk chunk = PaperLib.getChunkAtAsync(l, false).join();
                             if (chunk != null
-                                    && (relY <= 0 || chunk.getBlock(relX, relY - 1, relZ).getType() == Material.AIR)
                                     && !e.isGliding()
                                     && !e.isInsideVehicle()) {
                                 Integer level = levels.get(e.getUniqueId());
