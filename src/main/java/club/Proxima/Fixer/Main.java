@@ -38,7 +38,7 @@ public class Main extends JavaPlugin implements Listener {
         load();
 
         if (getServer().getPluginManager().getPlugin("ProtocolLib") != null) {
-            Parash.protocolLibWrapper(this);
+            Parasha.protocolLibWrapper(this);
         } else {
             Bukkit.getScheduler().runTaskTimer(this, () -> getLogger().warning("Дегенерат, добавь протоколлиб"), 200L, 1200L);
         }
