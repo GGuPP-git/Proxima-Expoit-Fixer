@@ -37,19 +37,12 @@ public class Main extends JavaPlugin implements Listener {
         //here u must write name func from fixes folder (new namefunc(this))
         load();
 
-        if (getConfig().getBoolean("DisableAllProtocolLib")) {
-            getLogger().info("You specified to disable all ProtocolLib patches.");
+        if (getServer().getPluginManager().getPlugin("ProtocolLib") != null) {
+            Parash.protocolLibWrapper(this);
         } else {
-            if (getServer().getPluginManager().getPlugin("ProtocolLib") != null) {
-                getLogger().info("Detected ProtocolLib!");
-                Parash.protocolLibWrapper(this);
-            } else {
-                getLogger().warning("Did not detect ProtocolLib, disabling packet patches");
-                Bukkit.getScheduler().runTaskTimer(this, () -> getLogger().warning("ProtocolLib plugin not detected, many gamebreaking exploits will not be patched. Download at https://www.spigotmc.org/resources/protocollib.1997/"), 200L, 1200L);
-            }
+            Bukkit.getScheduler().runTaskTimer(this, () -> getLogger().warning("Дегенерат, добавь протоколлиб"), 200L, 1200L);
         }
-    }    
-
+    } 
 
     private void load(Listener... list) {
         pluginManager.registerEvents(this, this);
