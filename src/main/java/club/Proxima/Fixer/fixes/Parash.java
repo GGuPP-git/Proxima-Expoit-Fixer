@@ -51,10 +51,10 @@ public class Parash {
                                 if (level != null) {
                                     if (level > plugin.getConfig().getInt("MaxTeleportPacketsPer10Seconds")) {
                                         event.setCancelled(true);
-                                        if (plugin.getConfig.getBoolean("KickForPacketFly")) {
+                                        if (plugin.getConfig().getBoolean("KickForPacketFly")) {
                                             Bukkit.getScheduler().runTask(this.plugin, new Runnable() { 
                                                 public void run() { 
-                                                    e.kickPlayer(ChatColor.translateAlternateColorCodes('&', plugin.getConfig.getString("PacketFlyKickMessage")));
+                                                    e.kickPlayer(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("PacketFlyKickMessage")));
                                                 }
                                             });
                                         }
