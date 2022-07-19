@@ -32,6 +32,7 @@ public class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+        new Metrics(this, 15298);
         pluginManager = getServer().getPluginManager();
         saveDefaultConfig();
         //here u must write name func from fixes folder (new namefunc(this))
