@@ -24,7 +24,6 @@ import java.util.*;
 public class Parash {
     public static void protocolLibWrapper(Main plugin) {
         final Map<UUID, Integer> levels = new HashMap<>();
-        final Map<UUID, Integer> boatLevels = new HashMap<>();
         ProtocolManager protocolManager = ProtocolLibrary.getProtocolManager();
 
 
