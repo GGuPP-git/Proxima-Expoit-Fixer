@@ -2,7 +2,7 @@ package club.Proxima.Fixer;
 
 
 //Other func
-import club.Proxima.Fixer.fixes.*;
+import club.Proxima.Fixer.patches.*;
 
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;

@@ -1,4 +1,4 @@
-package club.Proxima.Fixer.fixes;
+package club.Proxima.Fixer.patches;
 
 import com.comphenix.protocol.PacketType;
 import org.bukkit.ChatColor;
