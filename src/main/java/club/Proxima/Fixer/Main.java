@@ -3,7 +3,7 @@ package club.Proxima.Fixer;
 
 //Other func
 import club.Proxima.Fixer.patches.*;
-
+import club.Proxima.Fixer.misc.*;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
@@ -36,7 +36,7 @@ public class Main extends JavaPlugin implements Listener {
         pluginManager = getServer().getPluginManager();
         saveDefaultConfig();
         //here u must write name func from fixes folder (new namefunc(this))
-        load();
+        load(new test(this));
 
         if (getServer().getPluginManager().getPlugin("ProtocolLib") != null) {
             Parasha.protocolLibWrapper(this);
@@ -49,7 +49,7 @@ public class Main extends JavaPlugin implements Listener {
         pluginManager.registerEvents(this, this);
         for (Listener listener : list) {
             pluginManager.registerEvents(listener, this);
-            getLogger().info("Loaded class " + listener.getClass().getSimpleName());
+            getLogger().info("Class successfully loaded: " + listener.getClass().getSimpleName());
         }
     }
 }

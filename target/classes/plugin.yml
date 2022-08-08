@@ -4,14 +4,3 @@ main: club.Proxima.Fixer.Main
 description: Prevent many exploits that affect anarchy servers.
 softdepend: [ ProtocolLib ]
 
-commands:
-  aef:
-    usage: /<command>
-    description: AnarchyExploitFixes commands
-  toggleconnectionmsgs:
-    usage: /<command>
-    description: Toggle connection messages
-
-permissions:
-  anarchyexploitfixes.netherroofbypass:
-    description: Bypass nether roof restrictions. (if enabled)

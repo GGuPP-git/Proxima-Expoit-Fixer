@@ -21,9 +21,10 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
 
-public class Parash {
+public class Parasha {
     public static void protocolLibWrapper(Main plugin) {
         final Map<UUID, Integer> levels = new HashMap<>();
+        final Map<UUID, Integer> boatLevels = new HashMap<>();
         ProtocolManager protocolManager = ProtocolLibrary.getProtocolManager();
 
 
@@ -48,7 +49,7 @@ public class Parash {
                                     && !e.isInsideVehicle()) {
                                 Integer level = levels.get(e.getUniqueId());
                                 if (level != null) {
-                                    if (level > plugin.getConfig().getInt("MaxTeleportPacketsPer10Seconds")) {
+                                    if (level > plugin.getConfig().getInt("MaxPacketsTeleport")) {
                                         event.setCancelled(true);
                                         if (plugin.getConfig().getBoolean("KickForPacketFly")) {
                                             Bukkit.getScheduler().runTask(this.plugin, new Runnable() { 
@@ -58,7 +59,7 @@ public class Parash {
                                             });
                                         }
                                         if (plugin.getConfig().getBoolean("LogPacketFlyEvents")) {
-                                            plugin.getLogger().warning(e.getName() + " prevented from packetflying");
+                                            plugin.getLogger().warning(e.getName() + " - packet fly detected.");
                                         }
                                     } else {
                                         levels.merge(e.getUniqueId(), 1, Integer::sum);
@@ -68,6 +69,41 @@ public class Parash {
                                     levels.put(e.getUniqueId(), 1);
                                     Bukkit.getServer().getScheduler().runTaskLater(plugin, () -> levels.put(e.getUniqueId(), levels.get(e.getUniqueId()) - 1), 200L);
                                 }
+                            }
+                        }
+                    });
+            }
+
+            if (plugin.getConfig().getBoolean("BoatflyPatch")) {
+            protocolManager.addPacketListener(
+                    new PacketAdapter(plugin, ListenerPriority.HIGHEST, PacketType.Play.Client.USE_ENTITY) {
+                        @Override
+                        public void onPacketReceiving(PacketEvent event) {
+                            if (event.isPlayerTemporary()) {
+                                return;
+                            }
+
+                            Player e = event.getPlayer();
+                            if (e.isInsideVehicle() && e.getVehicle().getType() == EntityType.BOAT) {
+                                if (boatLevels.get(e.getUniqueId()) != null) {
+                                    if (boatLevels.get(e.getUniqueId()) > 10) {
+                                        new BukkitRunnable() {
+                                            public void run() {
+                                                e.getVehicle().remove();
+                                            }
+                                        }.runTask(plugin);
+                                        if (plugin.getConfig().getBoolean("LogBoatFlyEvents")) {
+                                            plugin.getLogger().warning(e.getName() + " prevented from boatflying");
+                                        }
+                                    } else {
+                                        boatLevels.merge(e.getUniqueId(), 1, Integer::sum);
+                                        Bukkit.getServer().getScheduler().runTaskLater(plugin, () -> boatLevels.put(e.getUniqueId(), boatLevels.get(e.getUniqueId()) - 1), 200L);
+                                    }
+                                } else {
+                                    boatLevels.put(e.getUniqueId(), 1);
+                                    Bukkit.getServer().getScheduler().runTaskLater(plugin, () -> boatLevels.put(e.getUniqueId(), boatLevels.get(e.getUniqueId()) - 1), 200L);
+                                }
+
                             }
                         }
                     });

@@ -1,5 +1,5 @@
 PreventPacketFly: true
-KickForPackFly: true
+KickForPacketFly: true
 PacketFlyKickMessage: "Пошел Нахуй!"
-MaxTeleportPacketsPer10Seconds: 5
+MaxPacketsTeleport: 25
 LogPacketFlyEvents: false
