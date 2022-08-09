@@ -3,3 +3,6 @@ KickForPacketFly: true
 PacketFlyKickMessage: "Пошел Нахуй!"
 MaxPacketsTeleport: 25
 LogPacketFlyEvents: false
+
+BoatflyPatch: true
+LogBoatFlyEvents: false
