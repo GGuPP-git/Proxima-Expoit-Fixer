@@ -3,7 +3,7 @@ package club.Proxima.Fixer;
 
 //Other func
 import club.Proxima.Fixer.patches.*;
-import club.Proxima.Fixer.misc.*;
+import club.Proxima.Fixer.prevents.*;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
@@ -39,7 +39,7 @@ public class Main extends JavaPlugin implements Listener {
         load(new test(this));
 
         if (getServer().getPluginManager().getPlugin("ProtocolLib") != null) {
-            Parasha.protocolLibWrapper(this);
+            Protocol.protocolLibWrapper(this);
         } else {
             Bukkit.getScheduler().runTaskTimer(this, () -> getLogger().warning("Дегенерат, добавь протоколлиб"), 200L, 1200L);
         }

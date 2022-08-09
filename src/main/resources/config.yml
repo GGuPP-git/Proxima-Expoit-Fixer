@@ -1,6 +1,6 @@
 PreventPacketFly: true
 KickForPacketFly: true
-PacketFlyKickMessage: "Пошел Нахуй!"
+PacketFlyKickMessage: "&4PacketFly prevented on this server!"
 MaxPacketsTeleport: 25
 LogPacketFlyEvents: false
 

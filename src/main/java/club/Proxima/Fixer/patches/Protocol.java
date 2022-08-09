@@ -21,7 +21,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
 
-public class Parasha {
+public class Protocol {
     public static void protocolLibWrapper(Main plugin) {
         final Map<UUID, Integer> levels = new HashMap<>();
         final Map<UUID, Integer> boatLevels = new HashMap<>();
