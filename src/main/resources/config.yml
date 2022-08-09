@@ -6,3 +6,5 @@ LogPacketFlyEvents: false
 
 BoatflyPatch: true
 LogBoatFlyEvents: false
+
+PreventPortalTraps: true

@@ -5,3 +5,4 @@ club\Proxima\Fixer\Main.class
 club\Proxima\Fixer\prevents\test.class
 club\Proxima\Fixer\patches\Protocol$1$1.class
 club\Proxima\Fixer\patches\Protocol$1.class
+club\Proxima\Fixer\prevents\Portals.class
