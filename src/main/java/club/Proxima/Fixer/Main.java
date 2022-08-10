@@ -36,7 +36,7 @@ public class Main extends JavaPlugin implements Listener {
         pluginManager = getServer().getPluginManager();
         saveDefaultConfig();
         //here u must write name func from fixes folder (new namefunc(this))
-        load(new Portals(this));
+        load(new Portals(this), new test(this));
 
         if (getServer().getPluginManager().getPlugin("ProtocolLib") != null) {
             Protocol.protocolLibWrapper(this);
