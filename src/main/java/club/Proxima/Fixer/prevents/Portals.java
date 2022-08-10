@@ -24,7 +24,7 @@ public class Portals implements Listener {
                 if (l.getWorld().getBlockAt(l).getType() == Material.PORTAL) {
                     evt.getPlayer().teleport(new Location(evt.getPlayer().getWorld(), evt.getPlayer().getLocation().getX()+2, evt.getPlayer().getLocation().getY(), evt.getPlayer().getLocation().getZ()+2));
                 }
-            }, 200L);
+            }, 300L);
         }
     }
 
@@ -39,7 +39,7 @@ public class Portals implements Listener {
                 if (evt.getPlayer().isGliding()) {
                         evt.getPlayer().setGliding(false);
                     }
-            }, 100L);
+            }, 300L);
         }
     }
 }
