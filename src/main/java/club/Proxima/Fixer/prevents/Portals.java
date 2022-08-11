@@ -23,22 +23,13 @@ public class Portals implements Listener {
                 Location l = evt.getPlayer().getLocation();
                 if (l.getWorld().getBlockAt(l).getType() == Material.PORTAL) {
                     evt.getPlayer().teleport(new Location(evt.getPlayer().getWorld(), evt.getPlayer().getLocation().getX()+2, evt.getPlayer().getLocation().getY(), evt.getPlayer().getLocation().getZ()+2));
-                }
-            }, 300L);
-        }
-    }
-
-    @EventHandler
-    private void onPortale(PlayerMoveEvent evt) {
-        if (plugin.getConfig().getBoolean("PreventPortalTraps")) {
-            Bukkit.getServer().getScheduler().runTaskLater(plugin, () -> {
-                Location l = evt.getPlayer().getLocation();
-                if (l.getWorld().getBlockAt(l).getType() == Material.PORTAL) {
-                    evt.getPlayer().teleport(new Location(evt.getPlayer().getWorld(), evt.getPlayer().getLocation().getX()+2, evt.getPlayer().getLocation().getY(), evt.getPlayer().getLocation().getZ()+2));
-                }
-                if (evt.getPlayer().isGliding()) {
-                        evt.getPlayer().setGliding(false);
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+                    @Override
+                    public void run() {
+                        evt.getPlayer().teleport(new Location(evt.getPlayer().getWorld(), evt.getPlayer().getLocation().getX()-2, evt.getPlayer().getLocation().getY(), evt.getPlayer().getLocation().getZ()-2));
                     }
+                }, 10L);    
+                }
             }, 300L);
         }
     }
