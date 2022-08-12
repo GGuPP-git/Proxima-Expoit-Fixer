@@ -14,6 +14,6 @@ public class test implements Listener {
     
 	@EventHandler
 	public void preventUnload(ChunkUnloadEvent e){
-		e.setCancelled(true);
+		
 	}
 }
