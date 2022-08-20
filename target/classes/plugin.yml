@@ -1,5 +1,5 @@
 name: ProximaExploitFixer
-version: 0.0.1
+version: 0.0.3
 main: club.Proxima.Fixer.Main
 description: Prevent many exploits that affect anarchy servers.
 softdepend: [ ProtocolLib ]
